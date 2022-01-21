@@ -8,18 +8,18 @@ secrets:
     file: ./src/secrets/quote.txt
 
 services:
-  example:
+  li-pca-app:
     # Run the container normally
     build:
       # VERSION must be specified on the command line:
       # e.g., --build-arg VERSION=0.0.1
       context: .
       dockerfile: Dockerfile
-    image: cisagov/example
+    image: cisagov/li-pca-app
     init: true
-    restart: "no"
+    restart: on-failure
     environment:
-      - ECHO_MESSAGE=Hello World from docker-compose!
+      - ECHO_MESSAGE="Hello from li-pca-app!"
     ports:
       - target: 8080
         published: 8080
@@ -29,9 +29,9 @@ services:
       - source: quote_txt
         target: quote.txt
 
-  example-version:
+  li-pca-app-version:
     # Run the container to collect version information
-    image: cisagov/example
+    image: cisagov/li-pca-app
     init: true
-    restart: "no"
+    restart: on-failure
     command: --version
