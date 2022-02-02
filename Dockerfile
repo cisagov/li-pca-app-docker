@@ -29,7 +29,7 @@ RUN apt-get update && \
 
 WORKDIR ${CISA_HOME}
 
-RUN wget -O sourcecode.tgz https://github.com/cisagov/pca-report-library/archive/refs/tags/v0.0.1.tar.gz && \
+RUN wget -O sourcecode.tgz https://github.com/cisagov/li-pca-app/archive/refs/tags/v0.0.1-rc2.tar.gz && \
   tar xzf sourcecode.tgz --strip-components=1 && \
   pip install -e . && \
   # ln -snf /run/secrets/quote.txt src/example/data/secret.txt && \
