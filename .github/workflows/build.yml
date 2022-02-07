@@ -259,7 +259,7 @@ jobs:
           cache-from: type=local,src=${{ env.BUILDX_CACHE_DIR }}
           cache-to: type=local,dest=${{ env.BUILDX_CACHE_DIR }}
           context: .
-          file: ./Dockerfile
+          file: ./docker/api/Dockerfile
           outputs: type=docker,dest=dist/image.tar
           tags: ${{ env.IMAGE_NAME }}:latest  # not to be pushed
           # For a list of pre-defined annotation keys and value types see:
@@ -387,7 +387,7 @@ jobs:
           cache-from: type=local,src=${{ env.BUILDX_CACHE_DIR }}
           cache-to: type=local,dest=${{ env.BUILDX_CACHE_DIR }}
           context: .
-          file: ./Dockerfile-x
+          file: ./docker/api/Dockerfile-x
           platforms: ${{ env.PLATFORMS }}
           push: true
           tags: ${{ needs.prepare.outputs.tags }}
