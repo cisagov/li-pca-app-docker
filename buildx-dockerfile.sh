@@ -8,7 +8,7 @@ set -o errexit
 set -o pipefail
 
 DOCKERFILE=./docker/api/Dockerfile
-DOCKERFILEX=/docker/api/Dockerfile-x
+DOCKERFILEX=./docker/api/Dockerfile-x
 
 # We don't want this expression to expand.
 # shellcheck disable=SC2016
