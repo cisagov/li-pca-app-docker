@@ -3,7 +3,6 @@
 
 # Standard Python Libraries
 import os
-import pprint
 
 # Third-Party Libraries
 import pytest
@@ -34,7 +33,6 @@ def test_release_version():
     pkg_vars = {}
     with open(VERSION_FILE) as f:
         exec(f.read(), pkg_vars)  # nosec
-    pprint.pprint(pkg_vars)
     project_version = pkg_vars["__version__"]
     assert (
         RELEASE_TAG == f"v{project_version}"
