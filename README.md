@@ -6,8 +6,8 @@
 
 ## Docker Image ##
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/li-pca-app-docker)](https://hub.docker.com/r/cisagov/li-pca-app-docker)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/li-pca-app-docker)](https://hub.docker.com/r/cisagov/li-pca-app-docker)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/li-pca-app)](https://hub.docker.com/r/cisagov/li-pca-app)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/li-pca-app)](https://hub.docker.com/r/cisagov/li-pca-app)
 [![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/li-pca-app-docker/tags)
 
 This is a Docker project that containerizes the [li-pca-app](https://github.com/cisagov/li-pca-app)
