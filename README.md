@@ -6,17 +6,18 @@
 
 ## Docker Image ##
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/example)](https://hub.docker.com/r/cisagov/example)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/example)](https://hub.docker.com/r/cisagov/example)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/li-pca-app-docker)](https://hub.docker.com/r/cisagov/li-pca-app-docker)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/li-pca-app-docker)](https://hub.docker.com/r/cisagov/li-pca-app-docker)
 [![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/li-pca-app-docker/tags)
 
-This Docker is used to run the Li-PCA Web Application project.
+This is a Docker project that containerizes the [li-pca-app](https://github.com/cisagov/li-pca-app)
+package, which can be used to run the Li-PCA Web Application project.
 
 ## Running ##
 
 ### Running with Docker ###
 
-To run the `cisagov/li-pca-app` image via Docker:
+To run the `cisagov/li-pca-app-docker` image via Docker:
 
 ```console
 docker run cisagov/li-pca-app-docker:0.0.1
@@ -49,27 +50,27 @@ docker run cisagov/li-pca-app-docker:0.0.1
 ## Image tags ##
 
 The images of this container are tagged with [semantic
-versions](https://semver.org) of the underlying example project that they
+versions](https://semver.org) of the underlying project that they
 containerize.  It is recommended that most users use a version tag (e.g.
 `:0.0.1`).
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/example:1.2.3`| An exact release version. |
-|`cisagov/example:1.2`| The most recent release matching the major and minor version numbers. |
-|`cisagov/example:1`| The most recent release matching the major version number. |
-|`cisagov/example:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
-|`cisagov/example:nightly` | A nightly build of the `develop` branch of this repository. |
-|`cisagov/example:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
+|`cisagov/li-pca-app-docker:0.0.1`| An exact release version. |
+|`cisagov/li-pca-app-docker:0.0`| The most recent release matching the major and minor version numbers. |
+|`cisagov/li-pca-app-docker:0`| The most recent release matching the major version number. |
+|`cisagov/li-pca-app-docker:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
+|`cisagov/li-pca-app-docker:nightly` | A nightly build of the `develop` branch of this repository. |
+|`cisagov/li-pca-app-docker:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
 
-See the [tags tab](https://hub.docker.com/r/cisagov/example/tags) on Docker
+See the [tags tab](https://hub.docker.com/r/cisagov/li-pca-app-docker/tags) on Docker
 Hub for a list of all the supported tags.
 
 ## Volumes ##
 
 | Mount point | Purpose        |
 |-------------|----------------|
-| `/var/log`  |  Log storage   |
+| `/usr/src/api`  |  API layer storage   |
 
 ## Ports ##
 
@@ -102,9 +103,11 @@ There are no required environment variables.
 
 ## Secrets ##
 
-| Filename     | Purpose |
+There are no secrets for this container.
+
+<!-- | Filename     | Purpose |
 |--------------|---------|
-| `quote.txt` | Replaces the secret stored in the example library's package data. |
+| `quote.txt` | Replaces the secret stored in the example library's package data. | -->
 
 ## Building from source ##
 
@@ -113,8 +116,8 @@ Build the image locally using this git repository as the [build context](https:/
 ```console
 docker build \
   --build-arg VERSION=0.0.1 \
-  --tag cisagov/example:0.0.1 \
-  https://github.com/cisagov/example.git#develop
+  --tag cisagov/li-pca-app-docker:0.0.1 \
+  https://github.com/cisagov/li-pca-app-docker.git#develop
 ```
 
 ## Cross-platform builds ##
@@ -127,8 +130,8 @@ Docker:
    or the command line:
 
     ```console
-    git clone https://github.com/cisagov/example.git
-    cd example
+    git clone https://github.com/cisagov/li-pca-app-docker.git
+    cd li-pca-app-docker
     ```
 
 1. Create the `Dockerfile-x` file with `buildx` platform support:
@@ -145,15 +148,8 @@ Docker:
       --platform linux/amd64 \
       --build-arg VERSION=0.0.1 \
       --output type=docker \
-      --tag cisagov/example:0.0.1 .
+      --tag cisagov/li-pca-app-docker:0.0.1 .
     ```
-
-## New repositories from a skeleton ##
-
-Please see our [Project Setup guide](https://github.com/cisagov/development-guide/tree/develop/project_setup)
-for step-by-step instructions on how to start a new repository from
-a skeleton. This will save you time and effort when configuring a
-new repository!
 
 ## Contributing ##
 
