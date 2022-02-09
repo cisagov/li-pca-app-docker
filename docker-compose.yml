@@ -23,7 +23,6 @@ services:
       - 5678:5678
 
   li-pca-api-version:
-    # Run the container to collect version information
     build:
       context: .
       dockerfile: ./docker/api/Dockerfile
@@ -43,8 +42,26 @@ services:
     networks:
       - backend
 
+  li-pca-web:
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    container_name: li-pca-web
+    hostname: li-pca-web
+    ports:
+      - 4300:4300
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/usr/src/web
+    networks:
+      - backend
+      - frontend
+
 networks:
   backend:
+    driver: bridge
+  frontend:
     driver: bridge
 
 volumes:

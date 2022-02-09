@@ -1,0 +1,43 @@
+ARG VERSION=unspecified
+
+FROM node:10
+
+ARG VERSION
+
+# For a list of pre-defined annotation keys and value types see:
+# https://github.com/opencontainers/image-spec/blob/master/annotations.md
+# Note: Additional labels are added by the build workflow.
+LABEL org.opencontainers.image.authors="mark.feldhousen@cisa.dhs.gov"
+LABEL org.opencontainers.image.vendor="Cybersecurity and Infrastructure Security Agency"
+
+ARG CISA_UID=421
+ENV CISA_HOME="/home/cisa"
+
+RUN addgroup --system --gid ${CISA_UID} cisa \
+  && adduser --system --uid ${CISA_UID} --ingroup cisa cisa
+
+RUN apt-get update && \
+ apt-get install wget
+
+# ca-certificates \
+# openssl \
+# py-pip
+
+WORKDIR ${CISA_HOME}
+
+RUN wget -O sourcecode.tgz https://github.com/cisagov/li-pca-app/archive/refs/tags/v0.0.1-rc2.tar.gz && \
+  tar xzf sourcecode.tgz --strip-components=1 && \
+  pip3 install -e . && \
+  rm sourcecode.tgz
+
+WORKDIR /usr/src/web
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+USER cisa
+
+# EXPOSE 8083
+VOLUME ["/usr/src/web"]
+CMD [ "npm", "start" ]
