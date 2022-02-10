@@ -150,7 +150,7 @@ Docker:
       --platform linux/amd64 \
       --build-arg VERSION=0.0.1 \
       --output type=docker \
-      --tag cisagov/li-pca-app-docker:0.0.1 .
+      --tag cisagov/li-pca-app:0.0.1 .
     ```
 
 ## Contributing ##
