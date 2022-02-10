@@ -22,7 +22,7 @@ WORKDIR ${CISA_HOME}
 
 RUN wget -O sourcecode.tgz https://github.com/cisagov/li-pca-app/archive/v${VERSION}.tar.gz && \
   tar xzf sourcecode.tgz --strip-components=1 && \
-  pip3 install -e . && \
+  pip3 install --editable . && \
   rm sourcecode.tgz
 
 USER cisa
