@@ -29,5 +29,4 @@ USER cisa
 
 EXPOSE 8080/TCP
 VOLUME ["/usr/src/api"]
-ENTRYPOINT ["python3"]
-CMD ["-m", "api"]
+ENTRYPOINT ["python3", "-m", "api"]
