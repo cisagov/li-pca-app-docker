@@ -108,7 +108,8 @@ There are no secrets for this container.
 <!--
 | Filename     | Purpose |
 |--------------|---------|
-| `quote.txt` | Replaces the secret stored in the example library's package data. | -->
+| `quote.txt` | Replaces the secret stored in the example library's package data. |
+-->
 
 ## Building from source ##
 
