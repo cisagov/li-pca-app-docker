@@ -42,7 +42,7 @@ docker run cisagov/li-pca-app:0.0.1
 1. Pull the new image:
 
     ```console
-    docker pull cisagov/li-pca-app-docker:0.0.1
+    docker pull cisagov/li-pca-app:0.0.1
     ```
 
 1. Recreate and run the container by following the [previous instructions](#running-with-docker).
