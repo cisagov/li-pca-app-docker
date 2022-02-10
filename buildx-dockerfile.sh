@@ -7,8 +7,8 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-DOCKERFILE=Dockerfile
-DOCKERFILEX=Dockerfile-x
+DOCKERFILE=./docker/api/Dockerfile
+DOCKERFILEX=./docker/api/Dockerfile-x
 
 # We don't want this expression to expand.
 # shellcheck disable=SC2016

@@ -1,37 +1,53 @@
 ---
-version: "3.7"
-
-# This docker-compose file is used to build and test the container
-
-secrets:
-  quote_txt:
-    file: ./src/secrets/quote.txt
-
+version: '3'
 services:
-  example:
-    # Run the container normally
-    build:
-      # VERSION must be specified on the command line:
-      # e.g., --build-arg VERSION=0.0.1
-      context: .
-      dockerfile: Dockerfile
-    image: cisagov/example
-    init: true
-    restart: "no"
-    environment:
-      - ECHO_MESSAGE=Hello World from docker-compose!
-    ports:
-      - target: 8080
-        published: 8080
-        protocol: tcp
-        mode: host
-    secrets:
-      - source: quote_txt
-        target: quote.txt
 
-  example-version:
+  li-pca-api:
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    image: cisagov/li-pca-app
+    stdin_open: true
+    tty: true
+    container_name: li-pca-api
+    hostname: li-pca-api
+    restart: on-failure
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/usr/src/api
+    networks:
+      - backend
+    ports:
+      - 8080:8080
+      - 8043:443
+      - 5678:5678
+
+  li-pca-api-version:
     # Run the container to collect version information
-    image: cisagov/example
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    image: cisagov/li-pca-app
     init: true
     restart: "no"
     command: --version
+
+  mongodb:
+    container_name: li-pca-db
+    hostname: li-pca-db
+    image: "mongo:3.6"
+    ports:
+      - "27017:27017"
+    command: --profile=1 --slowms=1
+    volumes:
+      - "mongodb:/data/db"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mongodb:
