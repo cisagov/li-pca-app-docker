@@ -56,12 +56,12 @@ containerize.  It is recommended that most users use a version tag (e.g.
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/li-pca-app-docker:0.0.1`| An exact release version. |
-|`cisagov/li-pca-app-docker:0.0`| The most recent release matching the major and minor version numbers. |
-|`cisagov/li-pca-app-docker:0`| The most recent release matching the major version number. |
-|`cisagov/li-pca-app-docker:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
-|`cisagov/li-pca-app-docker:nightly` | A nightly build of the `develop` branch of this repository. |
-|`cisagov/li-pca-app-docker:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
+|`cisagov/li-pca-app:0.0.1`| An exact release version. |
+|`cisagov/li-pca-app:0.0`| The most recent release matching the major and minor version numbers. |
+|`cisagov/li-pca-app:0`| The most recent release matching the major version number. |
+|`cisagov/li-pca-app:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
+|`cisagov/li-pca-app:nightly` | A nightly build of the `develop` branch of this repository. |
+|`cisagov/li-pca-app:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
 
 See the [tags tab](https://hub.docker.com/r/cisagov/li-pca-app-docker/tags) on Docker
 Hub for a list of all the supported tags.
