@@ -118,7 +118,7 @@ Build the image locally using this git repository as the [build context](https:/
 ```console
 docker build \
   --build-arg VERSION=0.0.1 \
-  --tag cisagov/li-pca-app-docker:0.0.1 \
+  --tag cisagov/li-pca-app:0.0.1 \
   https://github.com/cisagov/li-pca-app-docker.git#develop
 ```
 
