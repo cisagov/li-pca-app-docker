@@ -15,8 +15,11 @@ ENV CISA_HOME="/home/cisa"
 RUN addgroup --system --gid ${CISA_UID} cisa \
   && adduser --system --uid ${CISA_UID} --ingroup cisa cisa
 
-RUN apt-get update && \
- apt-get install wget
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    wget \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR ${CISA_HOME}
 
