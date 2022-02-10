@@ -17,7 +17,7 @@ package, which can be used to run the Li-PCA Web Application project.
 
 ### Running with Docker ###
 
-To run the `cisagov/li-pca-app-docker` image via Docker:
+To run the `cisagov/li-pca-app` image via Docker:
 
 ```console
 docker run cisagov/li-pca-app-docker:0.0.1
