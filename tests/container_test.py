@@ -7,12 +7,6 @@ import os
 # Third-Party Libraries
 import pytest
 
-ENV_VAR = "ECHO_MESSAGE"
-ENV_VAR_VAL = "Hello from li-pca-app-docker!"
-READY_MESSAGE = "This is a debug message"
-SECRET_QUOTE = (
-    "There are no secrets better kept than the secrets everybody guesses."  # nosec
-)
 RELEASE_TAG = os.getenv("RELEASE_TAG")
 VERSION_FILE = "src/version.txt"
 

@@ -6,8 +6,8 @@
 
 ## Docker Image ##
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/li-pca-app-docker)](https://hub.docker.com/r/cisagov/li-pca-app-docker)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/li-pca-app-docker)](https://hub.docker.com/r/cisagov/li-pca-app-docker)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/li-pca-app)](https://hub.docker.com/r/cisagov/li-pca-app)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/li-pca-app)](https://hub.docker.com/r/cisagov/li-pca-app)
 [![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/li-pca-app-docker/tags)
 
 This is a Docker project that containerizes the [li-pca-app](https://github.com/cisagov/li-pca-app)
@@ -17,10 +17,10 @@ package, which can be used to run the Li-PCA Web Application project.
 
 ### Running with Docker ###
 
-To run the `cisagov/li-pca-app-docker` image via Docker:
+To run the `cisagov/li-pca-app` image via Docker:
 
 ```console
-docker run cisagov/li-pca-app-docker:0.0.1
+docker run cisagov/li-pca-app:0.0.1
 ```
 
 ### Running with Docker Compose ###
@@ -42,7 +42,7 @@ docker run cisagov/li-pca-app-docker:0.0.1
 1. Pull the new image:
 
     ```console
-    docker pull cisagov/li-pca-app-docker:0.0.1
+    docker pull cisagov/li-pca-app:0.0.1
     ```
 
 1. Recreate and run the container by following the [previous instructions](#running-with-docker).
@@ -56,12 +56,12 @@ containerize.  It is recommended that most users use a version tag (e.g.
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/li-pca-app-docker:0.0.1`| An exact release version. |
-|`cisagov/li-pca-app-docker:0.0`| The most recent release matching the major and minor version numbers. |
-|`cisagov/li-pca-app-docker:0`| The most recent release matching the major version number. |
-|`cisagov/li-pca-app-docker:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
-|`cisagov/li-pca-app-docker:nightly` | A nightly build of the `develop` branch of this repository. |
-|`cisagov/li-pca-app-docker:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
+|`cisagov/li-pca-app:0.0.1`| An exact release version. |
+|`cisagov/li-pca-app:0.0`| The most recent release matching the major and minor version numbers. |
+|`cisagov/li-pca-app:0`| The most recent release matching the major version number. |
+|`cisagov/li-pca-app:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
+|`cisagov/li-pca-app:nightly` | A nightly build of the `develop` branch of this repository. |
+|`cisagov/li-pca-app:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
 
 See the [tags tab](https://hub.docker.com/r/cisagov/li-pca-app-docker/tags) on Docker
 Hub for a list of all the supported tags.
@@ -105,9 +105,11 @@ There are no required environment variables.
 
 There are no secrets for this container.
 
-<!-- | Filename     | Purpose |
+<!--
+| Filename     | Purpose |
 |--------------|---------|
-| `quote.txt` | Replaces the secret stored in the example library's package data. | -->
+| `quote.txt` | Replaces the secret stored in the example library's package data. |
+-->
 
 ## Building from source ##
 
@@ -116,7 +118,7 @@ Build the image locally using this git repository as the [build context](https:/
 ```console
 docker build \
   --build-arg VERSION=0.0.1 \
-  --tag cisagov/li-pca-app-docker:0.0.1 \
+  --tag cisagov/li-pca-app:0.0.1 \
   https://github.com/cisagov/li-pca-app-docker.git#develop
 ```
 
@@ -148,7 +150,7 @@ Docker:
       --platform linux/amd64 \
       --build-arg VERSION=0.0.1 \
       --output type=docker \
-      --tag cisagov/li-pca-app-docker:0.0.1 .
+      --tag cisagov/li-pca-app:0.0.1 .
     ```
 
 ## Contributing ##

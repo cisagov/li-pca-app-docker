@@ -6,12 +6,13 @@ services:
     build:
       context: .
       dockerfile: ./docker/api/Dockerfile
+    image: cisagov/li-pca-app
     stdin_open: true
     tty: true
     container_name: li-pca-api
     hostname: li-pca-api
     restart: on-failure
-    links:
+    depends_on:
       - mongodb
     volumes:
       - .:/usr/src/api
@@ -26,6 +27,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/api/Dockerfile
+    image: cisagov/li-pca-app
     init: true
     restart: "no"
     command: --version
