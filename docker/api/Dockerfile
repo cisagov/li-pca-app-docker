@@ -23,7 +23,7 @@ RUN apt-get update \
 
 WORKDIR ${CISA_HOME}
 
-RUN wget -O sourcecode.tgz https://github.com/cisagov/li-pca-app/archive/v${VERSION}.tar.gz && \
+RUN wget -O sourcecode.tgz https://github.com/cisagov/li-pca-app/archive/refs/tags/v0.0.1-rc4.tar.gz && \
   tar xzf sourcecode.tgz --strip-components=1 && \
   pip3 install --editable . && \
   rm sourcecode.tgz
@@ -31,5 +31,5 @@ RUN wget -O sourcecode.tgz https://github.com/cisagov/li-pca-app/archive/v${VERS
 USER cisa
 
 EXPOSE 8080/TCP
-VOLUME ["/usr/src/api"]
+VOLUME ["$CISA_HOME"]
 ENTRYPOINT ["python3", "-m", "api"]

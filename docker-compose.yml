@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/api/Dockerfile
-    image: cisagov/li-pca-app
+    image: cisagov/li-pca-app-api
     stdin_open: true
     tty: true
     container_name: li-pca-api
@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/api/Dockerfile
-    image: cisagov/li-pca-app
+    # image: cisagov/li-pca-app
     init: true
     restart: "no"
     command: --version
@@ -48,17 +48,21 @@ services:
     build:
       context: .
       dockerfile: ./docker/web/Dockerfile
+    # image: cisagov/li-pca-app
+    # image: cisagov/li-pca-app-api:v0.0.1-rc4
     container_name: li-pca-web
     hostname: li-pca-web
+    restart: on-failure
+    depends_on:
+      - li-pca-api
     ports:
-      - 4300:4300
-    stdin_open: true
-    tty: true
+      - 3000:3000
     volumes:
-      - .:/usr/src/web
+      - .:/usr/src/api
     networks:
       - backend
       - frontend
+
 
 networks:
   backend:
